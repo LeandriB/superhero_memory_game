@@ -1,0 +1,433 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    margin: 20px 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/superdoodle.jpg'); /* Background pattern from Subtle Patterns */
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 500;
+    font-size: 10px
+    color: #393939;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.grid {
+  max-width: 660px;
+  min-height: 680px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 3em;
+  list-style-type: none;
+}
+
+.grid .card {
+    height: 125px;
+    width: 125px;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 500;
+    color: black;
+}
+
+/*
+  Custom Cards
+*/
+.card {
+  position: relative;
+  -webkit-transition: all .4s linear;
+  -o-transition: all .4s linear;
+  transition: all .4s linear;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  margin: 20px;
+}
+
+.card,
+.back,
+.front {
+  height: 125px;
+  width: 125px;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.back,
+.front {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.card .front {
+  background: #010aa8 url('../img/speedline.jpeg') no-repeat center center / contain;
+  border-radius: 10px;
+
+}
+
+.card .back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  background-color: #ffffff;
+  background-size: 80px;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 33px;
+  border-radius: 10px;
+}
+
+.open {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.matched .front {
+  background: white url('../img/bam.jpeg') no-repeat center center/ 120px;
+}
+
+/*
+   Customize score panel
+*/
+
+.score-panel {
+    text-align: left;
+    width: 545px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.score-panel .stars {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+    color: yellow;
+}
+
+.fa.fa-star {
+  outline-color: black;
+   -webkit-text-stroke-width: 2px;
+   -webkit-text-stroke-color: red;
+}
+
+.score-panel .stars li {
+    list-style-type: none;
+    display: inline-block;
+}
+
+.timer {
+  color: #0c0c0c;
+  font-size: 18px;
+}
+
+.score-panel .reset {
+    cursor: pointer;
+}
+
+#reset i {
+  padding-left: 5px;
+
+}
+
+#textRestart {
+  color: #db0000;
+  font-size: 18px;
+}
+
+#moves {
+  color: #0c0c0c;
+  font-size: 18px;
+}
+
+#textMoves {
+  color: #0c0c0c;
+  font-size: 18px;
+}
+
+/*
+  Customize popup style
+*/
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 0;
+    margin: 0 auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.popup-content {
+    background-color: white;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Helvetica', sans-serif;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 1.5s;
+    animation-name: animatetop;
+    animation-duration: 1.5s;
+}
+
+/* Add Animation */
+
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.popup-content h1 {
+  font-size: 3em;
+  padding-top: 4em;
+  color: #3fe5ff;
+  font-weight: bolder;
+  text-shadow: 2px 2px black;
+ }
+
+
+.popup-content h3 {
+  font-weight: normal;
+  color:#0c0c0c;
+}
+
+#tryAgainButton {
+  background-color: #ffe900;
+  color: white;
+  font-size: 16px;
+  font-weight: normal;
+  font-family:  'Helvetica', sans-serif;
+  text-shadow: 1px 1px black;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 15px;
+  box-shadow: 7px 7px 30px #999999;
+  transition: box-shadow 0.5s;
+}
+
+#tryAgainButton:hover {
+  box-shadow: 3px 3px 8px #6F6F6F;
+  background-color: #ffe900;
+  cursor: pointer;
+}
+
+#starsText {
+  padding-left: 15px;
+}
+
+/* Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*
+ * Media queries
+ */
+
+@media only screen and (max-width: 780px) {
+  .grid {
+    max-width: 300px;
+    min-height: auto;
+    padding-bottom: 17px;
+  }
+
+  .grid .card {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 17px;
+  }
+
+  .score-panel {
+    max-width: 70%;
+    padding-bottom: 0;
+    display: block;
+    text-align: center;
+    line-height: 1.7em;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 10px 0;
+  }
+}
+
+/* Animations*/
+
+#winModal.zoomIn {
+  animation-delay: 1s;
+}
+
+#winModal.zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes zoomIn {
+  0% {
+  opacity: 0;
+  -webkit-transform: scale3d(.3, .3, .3);
+  transform: scale3d(.3, .3, .3);
+  }
+  50% {
+  opacity: 1;
+  }
+  }
+  @keyframes zoomIn {
+  0% {
+  opacity: 0;
+  -webkit-transform: scale3d(.3, .3, .3);
+  transform: scale3d(.3, .3, .3);
+  }
+  50% {
+  opacity: 1;
+  }
+  }
+
+.grid .card.rubberBand {
+  -webkit-animation-name: rubberBand;
+  animation-name: rubberBand;
+  -webkit-animation-duration: .75s;
+  animation-duration: .75s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes rubberBand {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes rubberBand {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
