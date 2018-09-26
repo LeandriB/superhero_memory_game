@@ -10,6 +10,10 @@ The goal with this project was to create a Memory Card Game with 16 cards, a sco
 2. The game screen will automatically open.
 3. Click on a card to start game.
 
+## Live Preview
+
+Check out a live preview of my [game](https://leandrib.github.io/superhero_memory_game/)
+
 ## Credit
 
 Tania Rascia has an awesome tutorial on "How to Create a Memory Game (ala Super Mario 3) with Plain JavaScript". Throughout this tutorial she explains how to create a basic memory card game with images instead of the given icons.
